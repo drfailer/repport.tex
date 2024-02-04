@@ -4,6 +4,14 @@
 
 \ProvidesPackage{config}
 
+% Config variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\authorName}{Rémi CHASSAGNOL}
+\newcommand{\paperTitle}{Report}
+\newcommand{\paperOrganization}{Company}
+\newcommand{\myListoflistingscaption}{Table des extraits de codes}
+\newcommand{\myListingscaption}{Extrait de code}
+\newcommand{\myAppendixTocCaption}{Table des annexes}
+
 % Load bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[style=ieee, backend=biber, sorting=none, defernumbers=true]{biblatex}
 \addbibresource{refs.bib}
@@ -22,8 +30,8 @@
 }
 
 % Code blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand\listoflistingscaption{Table des extraits de codes}
-\renewcommand\listingscaption{Extrait de code}
+\renewcommand\listoflistingscaption{\myListoflistingscaption}
+\renewcommand\listingscaption{\myListingscaption}
 
 
 % Headers and footers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -35,9 +43,9 @@
 \fancyhead[R]{}
 
 \renewcommand{\footrulewidth}{1pt}
-\fancyfoot[C]{Repport \\\textbf{Page \thepage/\pageref{lastPage}}}
-\fancyfoot[L]{Rémi CHASSAGNOL}
-\fancyfoot[R]{Company}
+\fancyfoot[C]{\paperTitle \\\textbf{Page \thepage/\pageref{lastPage}}}
+\fancyfoot[L]{\authorName}
+\fancyfoot[R]{\paperOrganization}
 
 % Arrays %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{array,multirow,makecell}
@@ -49,7 +57,7 @@
 
 % Appendix toc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{scrwfile}
-\TOCclone[Table des annexes]{toc}{atoc}
+\TOCclone[\myAppendixTocCaption]{toc}{atoc}
 \newcommand\StartAppendixEntries{}
 \AfterTOCHead[toc]{%
   \renewcommand\StartAppendixEntries{\value{tocdepth}=-10000\relax}%
