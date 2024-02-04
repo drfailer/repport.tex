@@ -1,0 +1,20 @@
+%------------------------------------------------------------------------------%
+%                                   section                                    %
+%------------------------------------------------------------------------------%
+
+\section{Section in part 3}
+
+Testing code blocks \ref{lst:test}.
+
+%- begin listing ------------------------------------------------------------{{{
+\begin{minted}[frame=lines,framesep=2mm,baselinestretch=1.2,fontsize=\normalsize,linenos]{C++}
+  #include <iostream>
+
+  int main(int, char **) {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+  }
+\end{minted}
+\captionof{listing}{Test code block}
+\label{lst:test}
+%- end listing --------------------------------------------------------------}}}

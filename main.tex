@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{wrapfig}
+\usepackage[acronym]{glossaries}
+\usepackage{glossary}
+\usepackage{import} % import sub files
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings} % for code listings
+\usepackage{minted} % for code highlighting
+\usepackage{color}
+\usepackage{float}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{setspace}
+\usepackage{config}
+
+%------------------------------------------------------------------------------%
+%                                   Document                                   %
+%------------------------------------------------------------------------------%
+
+\begin{document}
+
+    % Début %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \import{./pages}{titlepage}
+    \import{./sections/begin}{remerciements}
+    \import{./sections/begin}{abstract}
+    \import{./sections/begin}{table-illustrations}
+    \import{./sections/begin}{toc}
+    \import{./sections/begin}{introduction}
+
+    % Plan %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \clearpage{}
+    \part{Part 1}
+
+    \import{./sections/part1}{section}
+
+    \clearpage{}
+    \part{Part 2}
+
+    \import{./sections/part2}{section}
+
+    \clearpage{}
+    \part{Part 3}
+
+    \import{./sections/part3}{section}
+    \import{./sections/part3}{conclusion}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \import{./sections/end}{bibliography}
+
+    % Glossaire %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \clearpage{}
+    \printglossaries
+
+    % Annexes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \appendixwithtoc
+    \import{./appendicies/}{appendix1}
+
+\end{document}

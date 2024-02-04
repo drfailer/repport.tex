@@ -1,0 +1,68 @@
+%------------------------------------------------------------------------------%
+%                                    config                                    %
+%------------------------------------------------------------------------------%
+
+\ProvidesPackage{config}
+
+% Load bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[style=ieee, backend=biber, sorting=none, defernumbers=true]{biblatex}
+\addbibresource{refs.bib}
+
+% Lengths %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength\cftparskip{1pt}
+\setlength\cftbeforesecskip{10pt}
+
+% Links config %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+}
+
+% Code blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\listoflistingscaption{Table des extraits de codes}
+\renewcommand\listingscaption{Extrait de code}
+
+
+% Headers and footers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[C]{Repport \\\textbf{Page \thepage/\pageref{lastPage}}}
+\fancyfoot[L]{Rémi CHASSAGNOL}
+\fancyfoot[R]{Company}
+
+% Arrays %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array,multirow,makecell}
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+% Appendix toc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{scrwfile}
+\TOCclone[Table des annexes]{toc}{atoc}
+\newcommand\StartAppendixEntries{}
+\AfterTOCHead[toc]{%
+  \renewcommand\StartAppendixEntries{\value{tocdepth}=-10000\relax}%
+}
+\AfterTOCHead[atoc]{%
+  \edef\maintocdepth{\the\value{tocdepth}}%
+  \value{tocdepth}=-10000\relax%
+  \renewcommand\StartAppendixEntries{\value{tocdepth}=\maintocdepth\relax}%
+}
+\newcommand*\appendixwithtoc{%
+  \clearpage
+  \appendix
+  \addtocontents{toc}{\protect\StartAppendixEntries}
+  \listofatoc
+}
+%

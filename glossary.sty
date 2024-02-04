@@ -1,0 +1,29 @@
+%------------------------------------------------------------------------------%
+%                                  Glossaire                                   %
+%------------------------------------------------------------------------------%
+
+\ProvidesPackage{glossary}
+
+\makeglossaries
+
+\newglossaryentry{API}{
+  name=API,
+  description={
+    (Application Programming Interface) Interface d'un service, logiciel ou
+    application, permettant donc de faciliter la communication de celui-ci avec
+    d'autres produits.
+  },
+  plural={APIs},
+  first={API (Application Programming Interface)}
+}
+
+\newglossaryentry{SFINAE}{
+  name=SFINAE,
+  description={
+    (Substitution Failure Is Not An Error) mécanisme qui fait que le compilateur
+    ne génère pas d'erreur en cas de problème de substitution des paramètres
+    templates. Ce mécanisme permet, entre autre, l'implémentation de la
+    fonctionnalité d'activation des templates (\texttt{std::enable\_if});
+  },
+  first={SFINAE (Substitution Failure Is Not An Error)}
+}
