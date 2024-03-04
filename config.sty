@@ -33,6 +33,9 @@
 \renewcommand\listoflistingscaption{\myListoflistingscaption}
 \renewcommand\listingscaption{\myListingscaption}
 
+% Sections numbering %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{chngcntr}
+\counterwithin*{section}{part} % reset section counter between parts
 
 % Headers and footers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
